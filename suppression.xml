@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suppressions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.3.xsd ">
+    <suppress>
+        <notes>Pivotal Spring Framework through 5.3.16 suffers from a potential remote code execution (RCE)
+            issue if used for Java deserialization of untrusted data. Depending on how the library is implemented
+            within a product, this issue may or not occur, and authentication may be required. NOTE: the vendor's
+            position is that untrusted data is not an intended use case. The product's behavior will not be changed
+            because some users rely on deserialization of trusted data.<![CDATA[
+      file name: spring-boot-2.2.4.RELEASE.jar
+      ]]></notes>
+        <packageUrl regex="true">^pkg:maven/org\.springframework\.boot/spring\-boot@.*$</packageUrl>
+        <cve>CVE-2016-1000027</cve>
+    </suppress>
+       <suppress>
+        <notes>when MappingJackson2JsonView is configured in an application, JSONP support is
+            automatically ready to use through the "jsonp" and "callback" JSONP parameters, enabling
+            cross-domain requests.
+            <![CDATA[
+      file name: spring-boot-2.2.4.RELEASE.jar
+      ]]></notes>
+        <packageUrl regex="true">^pkg:maven/org\.springframework\.boot/spring\-boot@.*$</packageUrl>
+        <cve>CVE-2018-11040</cve>
+    </suppress>
+    <suppress>
+        <notes>f the application is deployed as a Spring Boot executable jar, i.e. the default, it is not
+            vulnerable to the exploit. However, the nature of the vulnerability is more general, and there
+            may be other ways to exploit it.
+            <![CDATA[
+   file name: spring-boot-2.2.4.RELEASE.jar
+   ]]></notes>
+        <packageUrl regex="true">^pkg:maven/org\.springframework\.boot/spring\-boot@.*$</packageUrl>
+        <cve>CVE-2022-22965</cve>
+    </suppress>
+    <suppress>
+        <notes>patterns for disallowedFields on a DataBinder are case sensitive which means a field is not
+            effectively protected unless it is listed with both upper and lower case for the first character of
+            the field, including upper and lower case for the first character of all nested fields within the
+            property path.<![CDATA[
+   file name: spring-boot-2.2.4.RELEASE.jar
+   ]]></notes>
+        <packageUrl regex="true">^pkg:maven/org\.springframework\.boot/spring\-boot@.*$</packageUrl>
+        <cve>CVE-2022-22968</cve>
+    </suppress>
+    <suppress>
+        <notes>A specially crafted sequence of HTTP/2 requests sent to Apache Tomcat 10.0.0-M1 to 10.0.0-M5,
+            9.0.0.M1 to 9.0.35 and 8.5.0 to 8.5.55 could trigger high CPU usage for several seconds. If a
+            sufficient number of such requests were made on concurrent HTTP/2 connections, the server could become
+            unresponsive.<![CDATA[
+   file name: tomcat-embed-core-9.0.30.jar
+   ]]></notes>
+        <packageUrl regex="true">^pkg:maven/org\.apache\.tomcat\.embed/tomcat\-embed\-core@.*$</packageUrl>
+        <cve>CVE-2020-11996</cve>
+    </suppress>
+    <suppress>
+        <notes>it was possible that a subsequent request made on that connection could contain HTTP headers -
+            including HTTP/2 pseudo headers - from a previous request rather than the intended headers.
+            This could lead to users seeing responses for unexpected resources.<![CDATA[
+   file name: tomcat-embed-core-9.0.30.jar
+   ]]></notes>
+        <packageUrl regex="true">^pkg:maven/org\.apache\.tomcat\.embed/tomcat\-embed\-core@.*$</packageUrl>
+        <cve>CVE-2020-13943</cve>
+    </suppress>
+    <suppress>
+        <notes>This led to a possibility of HTTP Request Smuggling if Tomcat was located behind a reverse
+            proxy that incorrectly handled the invalid Transfer-Encoding header in a particular manner.
+            Such a reverse proxy is considered unlikely.<![CDATA[
+   file name: tomcat-embed-core-9.0.30.jar
+   ]]></notes>
+        <packageUrl regex="true">^pkg:maven/org\.apache\.tomcat\.embed/tomcat\-embed\-core@.*$</packageUrl>
+        <cve>CVE-2020-1935</cve>
+    </suppress>
+    <suppress>
+        <notes>The root cause was the unexpected behaviour of the JRE API File.getCanonicalPath() which in
+            turn was caused by the inconsistent behaviour of the Windows API (FindFirstFileW) in some
+            circumstances.<![CDATA[
+   file name: tomcat-embed-core-9.0.30.jar
+   ]]></notes>
+        <packageUrl regex="true">^pkg:maven/org\.apache\.tomcat\.embed/tomcat\-embed\-core@.*$</packageUrl>
+        <cve>CVE-2021-24122</cve>
+    </suppress>
+</suppressions>
